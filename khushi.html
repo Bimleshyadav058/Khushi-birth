@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Khushi 💖</title>
+  <style>
+    :root{
+      --bg:#fff0f6;
+      --accent:#ff6fa3;
+      --soft:#ffd6e8;
+      --glass: rgba(255,255,255,0.6);
+    }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, sans-serif;background:linear-gradient(160deg,var(--bg),#fff7fb);}
+    .wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;}
+    .card{
+      width:100%;max-width:980px;background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--glass));
+      border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.12);overflow:hidden;padding:18px;
+      display:grid;grid-template-columns:1fr 420px;gap:18px;align-items:stretch;
+    }
+    @media(max-width:900px){.card{grid-template-columns:1fr;}}
+    .left{
+      padding:18px 24px;display:flex;flex-direction:column;gap:12px;justify-content:center;
+    }
+    .title{font-size:34px;color:var(--accent);margin:0;display:flex;align-items:center;gap:12px}
+    .subtitle{margin:0;color:#444;font-weight:600}
+    .heart-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .message{
+      background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8));
+      padding:12px;border-radius:12px;border:1px solid rgba(255,111,163,0.12);line-height:1.5;
+      color:#333;font-size:16px;
+    }
+    .code-line{
+      font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;border-radius:8px;padding:8px 12px;
+      border:1px dashed rgba(0,0,0,0.05);display:inline-block;margin-top:8px;
+    }
+    .left .buttons{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+    .btn{
+      padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600;
+      box-shadow:0 6px 18px rgba(255,111,163,0.12);
+    }
+    .btn-pink{background:linear-gradient(90deg,#ff7bb0,#ff5f8d);color:white}
+    .btn-soft{background:transparent;color:var(--accent);border:1px solid rgba(255,111,163,0.12)}
+    /* Right side gallery */
+    .right{padding:8px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center}
+    .photo{width:100%;height:260px;border-radius:12px;object-fit:cover;border:6px solid rgba(255,255,255,0.5)}
+    @media(max-width:900px){.photo{height:220px}}
+    .thumbs{display:flex;gap:8px;margin-top:6px}
+    .thumb{width:80px;height:60px;border-radius:8px;object-fit:cover;cursor:pointer;border:3px solid transparent}
+    .thumb.active{border-color:var(--accent)}
+    /* floating hearts */
+    .hearts{position:fixed;left:10px;top:10px;pointer-events:none;z-index:5}
+    .floating-heart{position:absolute;opacity:0.95;animation:floatUp 6s linear infinite}
+    @keyframes floatUp{
+      0%{transform:translateY(40px) scale(0.8);opacity:0}
+      10%{opacity:1}
+      100%{transform:translateY(-420px) scale(1.15);opacity:0}
+    }
+    /* footer note */
+    .footer-note{margin-top:8px;color:#666;font-size:13px}
+    /* little sparkles */
+    .sparkle{position:absolute;right:6px;top:6px;opacity:0.85}
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="wrap">
+    <div class="card" role="main">
+      <div class="left">
+        <h1 class="title">Happy Birthday, Khushi! 🎉</h1>
+        <p class="subtitle">From: <strong>Bimlesh</strong> — a little coder with a big heart ❤️</p>
+
+        <div class="message" id="mainMessage">
+          <p style="margin:0 0 8px 0;">
+            Hey Khushi — today the compiler of my heart returns <strong>SUCCESS</strong> because of you.  
+            You bring the brightest colors into my life like this page brings colors to the screen.  
+            I promise to debug your sad days and optimize your smiles forever. 💞 once again Happy birthday baby❤️
+          </p>
+          <p style="margin:0 0 8px 0;font-style:italic;color:#6b3b4b">
+            (P.S. If I could write you a function, it'd be: <span class="code-line">def love_you(): return "Always"</span>)
+          </p>
+          <p style="margin:0;color:#444">
+            Also, you’re the only notification I never want to mute. Happy birthday, my princess. 🎂🌸
+          </p>
+        </div>
+
+        <div class="buttons">
+          <button class="btn btn-pink" id="surpriseBtn">Open a small surprise 🎁</button>
+          <button class="btn btn-soft" id="musicToggle">Pause Music</button>
+        </div>
+
+        <p class="footer-note">Scan your QR, open the page, and enjoy — made with love & a little bit of code. 💻❤️</p>
+      </div>
+
+      <div class="right">
+        <!-- Main large photo -->
+        <img id="mainPhoto" class="photo" src="img1.jpg" alt="Khushi">
+        <div class="thumbs">
+          <img src="img1.jpg" class="thumb active" data-src="img1.jpg" alt="photo1">
+          <img src="img2.jpg" class="thumb" data-src="img2.jpg" alt="photo2">
+          <img src="img3.jpg" class="thumb" data-src="img3.jpg" alt="photo3">
+        </div>
+        <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
+          <small style="color:#777">Click thumbnails to change photo</small>
+          <small style="color:#777;font-weight:600">Happy Birthday! 🎉</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio: put 'music.mp3' in the same folder to play -->
+  <audio id="bgAudio" loop autoplay>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Thumbnail switching
+    const thumbs = document.querySelectorAll('.thumb');
+    const main = document.getElementById('mainPhoto');
+    thumbs.forEach(t => {
+      t.addEventListener('click', () => {
+        thumbs.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        main.src = t.dataset.src;
+      });
+    });
+
+    // Surprise button: small playful alert + reveal message
+    document.getElementById('surpriseBtn').addEventListener('click', () => {
+      const msg = [
+        "Loading birthday magic... ✨",
+        "Compiling hugs... 🤗",
+        "Linking a million butterflies... 🦋"
+      ];
+      let idx = 0;
+      const iv = setInterval(()=> {
+        if(idx>=msg.length){ clearInterval(iv); alert("Khushi, you are my favorite notification ❤️\n\n—Bimlesh"); }
+        else { alert(msg[idx]); idx++; }
+      }, 350);
+    });
+
+    // Music Toggle
+    const audio = document.getElementById('bgAudio');
+    const musicBtn = document.getElementById('musicToggle');
+    musicBtn.addEventListener('click', () => {
+      if(audio.paused){ audio.play(); musicBtn.textContent = 'Pause Music'; }
+      else { audio.pause(); musicBtn.textContent = 'Play Music'; }
+    });
+    // attempt to play (some browsers block autoplay)
+    audio.play().catch(()=>{ musicBtn.textContent = 'Play Music'; });
+
+    // Floating hearts generator
+    const heartsEl = document.getElementById('hearts');
+    function spawnHeart(){
+      const h = document.createElement('div');
+      h.className = 'floating-heart';
+      const size = Math.floor(Math.random()*28)+18;
+      h.style.width = size+'px';
+      h.style.height = size+'px';
+      h.style.left = Math.floor(Math.random()*90)+'vw';
+      h.style.top = '100vh';
+      h.style.background = 'radial-gradient(circle at 30% 30%, #ffd6e8, #ff7bb0)';
+      h.style.borderRadius = '50% 50% 50% 50% / 60% 60% 40% 40%';
+      h.style.opacity = '0.95';
+      h.style.transform = 'translateY(0)';
+      heartsEl.appendChild(h);
+      setTimeout(()=> h.remove(), 7000);
+    }
+    setInterval(spawnHeart, 900);
+
+    // small keyboard easter egg: press B to show short poem
+    document.addEventListener('keydown', (e)=> {
+      if(e.key.toLowerCase()==='b'){
+        alert("A tiny poem for Khushi:\n\nRoses are #ff6fa3,\nViolets compile with glee,\nIf love was code and you the output,\nI'd run forever — with thee.");
+      }
+    });
+
+    // If user wants to host locally: remain functional offline; images/music must be local files:
+    // img1.jpg, img2.jpg, img3.jpg, music.mp3 (place in same folder)
+  </script>
+</body>
+</html>
